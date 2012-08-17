@@ -1,7 +1,7 @@
 AppRate for Android
 =============
 
-AppRate for Android is a library that allows your users to rate your application in a non intrusive way.
+AppRate for Android is a library that allows your users to rate your application in a non intrusive way. A window with options to rate, remind later or reject is displayed according to your configuration
 
 
 Contributing
