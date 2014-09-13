@@ -8,7 +8,6 @@ Contributing
 ------------
 
 If you want to contribute, or you have any special remark about the library, please feel free to drop me a line at eenriquelopez@gmail.com.
-If you're interested in my projects, you can follow me on Twitter (https://twitter.com/eenriquelopez)
 
 
 How to install/use
