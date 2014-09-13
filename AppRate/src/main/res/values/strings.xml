@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AppRate</string>
+    <string name="dialog_text">If you enjoy using %1$s, please take a moment to rate it. Thanks for your support!</string>
+    <string name="rate">Rate</string>
+    <string name="remind">Reming me later</string>
+    <string name="no">No thanks</string>
+    <string name="dontask">Do not ask again</string>
+</resources>

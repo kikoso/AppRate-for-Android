@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AppRate/AppRate.iml" filepath="$PROJECT_DIR$/AppRate/AppRate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AppRate-Demo/AppRate-Demo.iml" filepath="$PROJECT_DIR$/AppRate-Demo/AppRate-Demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AppRateDemo.iml" filepath="$PROJECT_DIR$/AppRateDemo.iml" />
+    </modules>
+  </component>
+</project>
+
