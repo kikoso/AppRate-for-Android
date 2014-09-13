@@ -10,7 +10,14 @@ public class AppRateDemo extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AppRater.init(this);
+        new AppRater(this)
+                .setMinDays(0)
+                .setMinLaunches(0)
+                .setAppTitle("My Title")
+                .setAppPackage("my.package")
+                .init();
+
+
     }
 
 }

@@ -10,23 +10,26 @@ import android.net.Uri;
 import com.enrique.mymodule.app.R;
 
 public class AppRater {
-    private final static String APP_TITLE = "YOUR-APP-NAME";
-    private final static String APP_PNAME = "YOUR-PACKAGE-NAME";
+    private static String mAppTitle = "YOUR-APPLICATION-TITLE";
+    private static String mAppPackageName = "YOUR-PACKAGE-NAME";
 
     private final static String APP_RATER    = "apprater";
     private final static String DONT_SHOW    = "dontshowagain";
     private final static String LAUNCH_COUNT = "launch_count";
     private final static String FIRST_LAUNCH = "date_firstlaunch";
 
-    private static int DAYS_UNTIL_PROMPT     = 0;
-    private static int LAUNCHES_UNTIL_PROMPT = 0;
+    private int daysUntilPrompt = 3;
+    private int launchesUntilPrompt = 7;
 
     private static Context mContext;
 
-    public static void init(Context context) {
-        mContext = context;
+    public AppRater(Context context) {
+        this.mContext = context;
+    }
+
+    public AppRater init() {
         SharedPreferences prefs = mContext.getSharedPreferences(APP_RATER, 0);
-        if (prefs.getBoolean(DONT_SHOW, false)) { return ; }
+        if (prefs.getBoolean(DONT_SHOW, false)) { return null; }
 
         SharedPreferences.Editor editor = prefs.edit();
         long launch_count = prefs.getLong(LAUNCH_COUNT, 0) + 1;
@@ -38,20 +41,21 @@ public class AppRater {
             editor.putLong(FIRST_LAUNCH, date_firstLaunch);
         }
 
-        if (launch_count >= LAUNCHES_UNTIL_PROMPT) {
+        if (launch_count >= launchesUntilPrompt) {
             if (System.currentTimeMillis() >= date_firstLaunch +
-                    (DAYS_UNTIL_PROMPT * 24 * 60 * 60 * 1000)) {
+                    (daysUntilPrompt * 24 * 60 * 60 * 1000)) {
                 showRateDialog(mContext, editor);
             }
         }
         editor.commit();
+        return this;
     }
 
-    public static void showRateDialog(final Context mContext, final SharedPreferences.Editor editor) {
+    public AppRater showRateDialog(final Context mContext, final SharedPreferences.Editor editor) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-        builder.setMessage(mContext.getString(R.string.dialog_text,APP_PNAME));
-        builder.setTitle(mContext.getResources().getString(R.string.rate) +" "+ APP_TITLE);
+        builder.setMessage(mContext.getString(R.string.dialog_text, mAppTitle));
+        builder.setTitle(mContext.getResources().getString(R.string.rate) +" "+ mAppTitle);
         builder.setNegativeButton(mContext.getResources().getString(R.string.no), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
@@ -74,21 +78,34 @@ public class AppRater {
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri
-                        .parse("market://details?id=" + APP_PNAME)));
+                        .parse("market://details?id=" + mAppPackageName)));
                 dialog.dismiss();
             }
         });
 
         AlertDialog dialog = builder.create();
         dialog.show();
+        return this;
     }
 
-    public static void setMinDays(int minDays) {
-        DAYS_UNTIL_PROMPT = minDays;
+    public AppRater setMinDays(int minDays) {
+        daysUntilPrompt = minDays;
+        return this;
     }
 
-    public static void setMinLaunches(int minLaunches) {
-        LAUNCHES_UNTIL_PROMPT = minLaunches;
+    public AppRater setMinLaunches(int minLaunches) {
+        launchesUntilPrompt = minLaunches;
+        return this;
+    }
+
+    public AppRater setAppTitle(String appTitle) {
+         mAppTitle = appTitle;
+        return this;
+    }
+
+    public AppRater setAppPackage(String appPackageName) {
+        mAppPackageName = appPackageName;
+        return this;
     }
 
 }
