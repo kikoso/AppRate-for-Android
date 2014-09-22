@@ -18,7 +18,7 @@ You can checkout the repository and add it to your project, or download it throu
 
      compile 'com.github.kikoso:AppRate-Android:1.0-RELEASE'
 
-Once you have clone the project, you will need to add it as a library project to your Android application. Once this has been done, use it as follows:
+After adding it, you will need to add it as a library project to your Android application. Once this has been done, use it as follows:
 
      super.onCreate(savedInstanceState);
         new AppRater(this)
