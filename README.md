@@ -14,6 +14,10 @@ If you want to contribute, or you have any special remark about the library, ple
 How to install/use
 ------------------
 
+You can checkout the repository and add it to your project, or download it through Maven Central.
+
+     compile 'com.github.kikoso:AppRate-Android:1.0-RELEASE'
+
 Once you have clone the project, you will need to add it as a library project to your Android application. Once this has been done, use it as follows:
 
      super.onCreate(savedInstanceState);
