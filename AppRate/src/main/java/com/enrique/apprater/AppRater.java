@@ -25,6 +25,7 @@ public class AppRater {
 
     public AppRater(Context context) {
         this.mContext = context;
+        this.mAppPackageName = context.getPackageName();
     }
 
     public AppRater init() {
@@ -100,11 +101,6 @@ public class AppRater {
 
     public AppRater setAppTitle(String appTitle) {
          mAppTitle = appTitle;
-        return this;
-    }
-
-    public AppRater setAppPackage(String appPackageName) {
-        mAppPackageName = appPackageName;
         return this;
     }
 

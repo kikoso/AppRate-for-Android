@@ -14,7 +14,6 @@ public class AppRateDemo extends Activity {
                 .setMinDays(0)
                 .setMinLaunches(0)
                 .setAppTitle("My Title")
-                .setAppPackage("my.package")
                 .init();
 
 
