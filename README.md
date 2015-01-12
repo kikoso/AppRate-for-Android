@@ -25,13 +25,10 @@ After adding it, you will need to add it as a library project to your Android ap
                 .setMinDays(0)
                 .setMinLaunches(0)
                 .setAppTitle("My Title")
-                .setAppPackage("my.package")
                 .init();
 
 
 That's it :-)
-
-Ensure that you have set up your package with setAppPackage().
 
 Enjoy!
 
