@@ -1,19 +1,18 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.1.0"
+    compileSdkVersion 25
+    buildToolsVersion '25.0.2'
 
     defaultConfig {
-        applicationId "com.enrique.mymodule.app"
         minSdkVersion 14
-        targetSdkVersion 14
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
     }
     buildTypes {
         release {
-            runProguard false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
