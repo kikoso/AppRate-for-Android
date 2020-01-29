@@ -1,5 +1,9 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
+ext.versionMajor = 0
+ext.versionMinor = 4
+ext.versionPatch = 0
+
 buildscript {
     repositories {
         jcenter()

@@ -9,7 +9,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
+        versionName computeVersionName()
     }
     buildTypes {
         release {
@@ -22,4 +22,8 @@ android {
 dependencies {
     implementation project(':AppRate')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+def computeVersionName() {
+    return String.format('%d.%d.%d', versionMajor, versionMinor, versionPatch)
 }
