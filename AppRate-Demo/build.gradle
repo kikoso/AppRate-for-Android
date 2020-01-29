@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.2'
+    compileSdkVersion 29
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         applicationId "demo.apprate.enrique.com.appratedemo"
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
     }
@@ -20,6 +20,6 @@ android {
 }
 
 dependencies {
-    compile project(':AppRate')
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':AppRate')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
