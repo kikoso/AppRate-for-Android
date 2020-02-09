@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/kikoso/AppRate-for-Android.svg?branch=develop)](https://travis-ci.org/kikoso/AppRate-for-Android)
+
 AppRate for Android
 =============
 
