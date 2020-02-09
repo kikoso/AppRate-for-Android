@@ -1,11 +1,13 @@
 language: android
-dist: trusty
+sudo: true
+git:
+  depth: 3
 android:
   components:
     # Uncomment the lines below if you want to
     # use the latest revision of Android SDK Tools
-    # - tools
-    # - platform-tools
+    - tools
+    - platform-tools
 
     # The BuildTools version used by your project
     - build-tools-28.0.3
@@ -26,6 +28,10 @@ android:
    - sys-img-x86-android-26
    - sys-img-armeabi-v7a-android-17
 
+install:
+  - echo y | sdkmanager "ndk-bundle"
+  - echo y | sdkmanager "platforms;android-28"
+
 env:
   global:
    # install timeout in minutes (2 minutes by default)
@@ -35,7 +41,7 @@ env:
 # Emulator Management: Create, Start and Wait
 before_script:
   - android list targets
-  - echo no | android create avd --force -n test -t android-26
+  - echo no | android create avd --force -n test -t android-26 --abi x86
   - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
