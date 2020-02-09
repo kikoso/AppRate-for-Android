@@ -10,8 +10,8 @@ import android.net.Uri;
 import com.enrique.mymodule.app.R;
 
 public class AppRater {
-    private static String mAppTitle = "YOUR-APPLICATION-TITLE";
-    private static String mAppPackageName = "YOUR-PACKAGE-NAME";
+    private static String appTitle = "YOUR-APPLICATION-TITLE";
+    private static String appPackageName = "YOUR-PACKAGE-NAME";
 
     private final static String APP_RATER    = "apprater";
     private final static String DONT_SHOW    = "dontshowagain";
@@ -21,15 +21,15 @@ public class AppRater {
     private int daysUntilPrompt = 3;
     private int launchesUntilPrompt = 7;
 
-    private static Context mContext;
+    private static Context context;
 
     public AppRater(Context context) {
-        this.mContext = context;
-        this.mAppPackageName = context.getPackageName();
+        this.context = context;
+        this.appPackageName = context.getPackageName();
     }
 
     public AppRater init() {
-        SharedPreferences prefs = mContext.getSharedPreferences(APP_RATER, 0);
+        SharedPreferences prefs = context.getSharedPreferences(APP_RATER, 0);
         if (prefs.getBoolean(DONT_SHOW, false)) { return null; }
 
         SharedPreferences.Editor editor = prefs.edit();
@@ -45,7 +45,7 @@ public class AppRater {
         if (launch_count >= launchesUntilPrompt) {
             if (System.currentTimeMillis() >= date_firstLaunch +
                     (daysUntilPrompt * 24 * 60 * 60 * 1000)) {
-                showRateDialog(mContext, editor);
+                showRateDialog(context, editor);
             }
         }
         editor.commit();
@@ -55,8 +55,8 @@ public class AppRater {
     public AppRater showRateDialog(final Context mContext, final SharedPreferences.Editor editor) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-        builder.setMessage(mContext.getString(R.string.dialog_text, mAppTitle));
-        builder.setTitle(mContext.getResources().getString(R.string.rate) +" "+ mAppTitle);
+        builder.setMessage(mContext.getString(R.string.dialog_text, appTitle));
+        builder.setTitle(mContext.getResources().getString(R.string.rate) +" "+ appTitle);
         builder.setNegativeButton(mContext.getResources().getString(R.string.no), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
@@ -79,7 +79,7 @@ public class AppRater {
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri
-                        .parse("market://details?id=" + mAppPackageName)));
+                        .parse("market://details?id=" + appPackageName)));
                 dialog.dismiss();
             }
         });
@@ -100,7 +100,7 @@ public class AppRater {
     }
 
     public AppRater setAppTitle(String appTitle) {
-         mAppTitle = appTitle;
+         AppRater.appTitle = appTitle;
         return this;
     }
 

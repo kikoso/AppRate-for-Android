@@ -90,5 +90,6 @@
     <orderEntry type="jdk" jdkName="Android API 29 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="AppRate" />
+    <orderEntry type="module" module-name="AppRate" />
   </component>
 </module>
