@@ -34,7 +34,7 @@ env:
 
 # Emulator Management: Create, Start and Wait
 before_script:
-  - android list target
+  - android list targets
   - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
   - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
