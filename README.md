@@ -51,4 +51,4 @@ Enrique López Mañas - <eenriquelopez@gmail.com>
   <img alt="Follow me on LinkedIn"
        src="https://raw.github.com/kikoso/android-stackblur/master/art/linkedin.png" />
        
-[1]: https://raw.github.com/kikoso/AppRate-for-Android/master/art/screenshot.png
+[1]: https://raw.github.com/kikoso/AppRate-for-Android/develop/art/screenshot.png
